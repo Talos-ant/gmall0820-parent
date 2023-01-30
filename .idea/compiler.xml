@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="gmall0820-logger" target="19" />
+      <module name="gmall0820-logger" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
