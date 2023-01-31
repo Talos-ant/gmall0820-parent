@@ -16,7 +16,7 @@ import java.util.Properties;
  * @Date 2023/1/31 11:46 AM
  **/
 public class MyKafkaUtil {
-    private static String kafkaServer = "hadoop202:9092,hadoop203:9092.hadoop204:9092";
+    private static String kafkaServer = "hadoop202:9092,hadoop203:9092,hadoop204:9092";
     // 获取FlinkKafkaConsumer
     public static FlinkKafkaConsumer<String> getKafkaSource(String topic,String groupId){
         // kafka 连接的属性配置

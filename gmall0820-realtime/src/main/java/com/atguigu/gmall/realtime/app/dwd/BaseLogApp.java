@@ -29,7 +29,7 @@ public class BaseLogApp {
         // 1.3设置checkpoint ,默认exactly_once
         env.enableCheckpointing(5000, CheckpointingMode.EXACTLY_ONCE);
         env.getCheckpointConfig().setCheckpointTimeout(60000);
-        env.setStateBackend(new FsStateBackend("hdfs://hadoop202:9870/gmall/checkpoint/baselogApp"));
+        env.setStateBackend(new FsStateBackend("hdfs://hadoop202:9820/gmall/checkpoint/baselogApp"));
 
 
         // todo 2.从kafka中读取数据

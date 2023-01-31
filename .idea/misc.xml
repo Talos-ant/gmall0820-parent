@@ -4,7 +4,6 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/gmall0820-logger/pom.xml" />
         <option value="$PROJECT_DIR$/gmall0820-realtime/pom.xml" />
       </list>
     </option>

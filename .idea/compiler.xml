@@ -8,7 +8,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="gmall0820-realtime" />
-        <module name="gmall0820-logger" />
       </profile>
     </annotationProcessing>
   </component>
