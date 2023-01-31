@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.atguigu.gmall.realtime.utils.MyKafkaUtil;
 import org.apache.flink.api.common.functions.MapFunction;
+import org.apache.flink.runtime.state.filesystem.FsStateBackend;
+import org.apache.flink.streaming.api.CheckpointingMode;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
@@ -24,6 +26,11 @@ public class BaseLogApp {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         // 1.2设置并行度
         env.setParallelism(4);
+        // 1.3设置checkpoint ,默认exactly_once
+        env.enableCheckpointing(5000, CheckpointingMode.EXACTLY_ONCE);
+        env.getCheckpointConfig().setCheckpointTimeout(60000);
+        env.setStateBackend(new FsStateBackend("hdfs://hadoop202:9870/gmall/checkpoint/baselogApp"));
+
 
         // todo 2.从kafka中读取数据
         // 2.1 调用kafka工具类,获取FlinkKafkaConsumer
