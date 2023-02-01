@@ -25,7 +25,7 @@ public class MyKafkaUtil {
         props.setProperty(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaServer);
         return new FlinkKafkaConsumer<String>(topic,new SimpleStringSchema(),props);
     }
-
+    // 封装kafka producer
     public static FlinkKafkaProducer<String> getKafkaSink(String topic){
         Properties props = new Properties();
         props.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaServer);
