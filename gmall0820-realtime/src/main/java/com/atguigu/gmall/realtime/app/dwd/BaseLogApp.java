@@ -152,14 +152,14 @@ public class BaseLogApp {
                         // 获取启动日志标记
                         JSONObject startJsonObj = jsonObject.getJSONObject("start");
                         // 判断是否为启动日志
-                        if (startJsonObj != null & startJsonObj.size() > 0) {
+                        if (startJsonObj != null && startJsonObj.size() > 0) {
                             // 如果是启动日志,输出到启动侧输出流
                             context.output(startTag, jsonObject.toString());
 
                         } else {
                             // 如果不是启动日志,获取曝光日志
                             JSONArray displays = jsonObject.getJSONArray("displays");
-                            if (displays != null & displays.size() > 0) {
+                            if (displays != null && displays.size() > 0) {
                                 // 如果是曝光日志,遍历输出到侧输出流
                                 for (int i = 0; i < displays.size(); i++) {
                                     JSONObject displaysObj = displays.getJSONObject(i);
