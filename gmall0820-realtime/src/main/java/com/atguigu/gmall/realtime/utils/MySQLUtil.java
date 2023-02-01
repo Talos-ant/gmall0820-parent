@@ -53,11 +53,12 @@ public class MySQLUtil {
                 T obj = clz.newInstance();
                 //对查询出的列进行遍历，每遍历一次得到一个列名
                 for (int i = 1; i <= md.getColumnCount(); i++) {
-                    String propertyName = md.getColumnName(i);
+                    String columnName = md.getColumnName(i);
+                    String propertyName = "";
                     //如果开启了下划线转驼峰的映射，那么将列名里的下划线转换为属性的打
                     if (underScoreToCamel) {
                         //直接调用Google的guava的CaseFormat  LOWER_UNDERSCORE小写开头+下划线->LOWER_CAMEL小写开头+驼峰
-                        propertyName = CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, propertyName);
+                        propertyName = CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, columnName);
                     }
                     //调用apache的commons-bean中的工具类，给Bean的属性赋值
                     BeanUtils.setProperty(obj, propertyName, rs.getObject(i));
